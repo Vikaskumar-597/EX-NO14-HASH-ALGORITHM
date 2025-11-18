@@ -1,4 +1,4 @@
-# EX-NO14-HASH-ALGORITHM
+# EX-NO-14-HASH-ALGORITHM
 
 ## AIM:
 To implement HASH ALGORITHM
@@ -27,9 +27,34 @@ To implement HASH ALGORITHM
 
 
 ## Program:
+```
+#include <stdio.h>
 
+unsigned long simple_hash(const char *str) {
+    unsigned long hash = 5381;
+    int c;
 
+    while ((c = *str++)) {
+        hash = ((hash << 5) + hash) + c; // hash * 33 + c
+    }
+
+    return hash;
+}
+
+int main() {
+    char msg[256];
+
+    printf("Enter message: ");
+    fgets(msg, sizeof(msg), stdin);
+
+    printf("Simple Hash: %lu\n", simple_hash(msg));
+
+    return 0;
+}
+
+```
 ## Output:
+<img width="414" height="112" alt="image" src="https://github.com/user-attachments/assets/12f66592-259e-482d-82a1-2ba0b8a1b5bd" />
 
 ## Result:
 The program is executed successfully.
